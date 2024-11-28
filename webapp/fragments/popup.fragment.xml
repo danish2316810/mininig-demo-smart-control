@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <SelectDialog items="{/Employees}" confirm="onConfirm">
+        <StandardListItem 
+            title="{Name}" />
+    </SelectDialog>
+</core:FragmentDefinition>
