@@ -7,11 +7,7 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("app.project1.controller.View1", {
-        onInit() {
-            var oModl=new sap.ui.model.json.JSONModel()
-                 oModl.loadData("/model/table.json")
-                 this.getView().setModel(oModl)
-        },
+        
         
         onConfirm:function(oEvent){
           var oItem=oEvent.getParameter("selectedItem")
@@ -36,7 +32,16 @@ sap.ui.define([
                 this.dialog.open();
             }
         },
-        
+        onRowPress:function(oEvent){
+          var oItem=oEvent.getParameter("listItem")
+          var id=oItem.getBindingContext().getProperty("EmployeeID")
+          var oRouter=this.getOwnerComponent().getRouter()
+             oRouter.navTo("RouteView2",{
+              id:id
+             })
+
+
+        },
         onFilter: function () {
             // Get references to input fields
             var oNameInput = this.byId("idNameFilter");
@@ -57,7 +62,7 @@ sap.ui.define([
               aFilters.push(new Filter("City", FilterOperator.Contains, sCityValue));
             }
             if (sDeptValue) {
-                aFilters.push(new Filter("Department", FilterOperator.Contains, sCityValue));
+                aFilters.push(new Filter("Department", FilterOperator.Contains, sDeptValue));
               }
       
             // Apply filters to the table's binding
@@ -65,6 +70,11 @@ sap.ui.define([
             var oBinding = oTable.getBinding("items");
             oBinding.filter(aFilters);
           }
+          // onNavView2:function(){
+          //   var oRouter=this.getOwnerComponent().getRouter()
+          //   oRouter.navTo("RouteView2")
+
+          // }
 
 
 

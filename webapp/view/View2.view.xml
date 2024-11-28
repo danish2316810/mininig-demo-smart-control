@@ -1,0 +1,25 @@
+<mvc:View controllerName="app.project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page2" title="{i18n>title1}">
+      
+       <VBox>
+        <!-- Create a SimpleForm to display the address details -->
+        <f:SimpleForm editable="false" xmlns="sap.m">
+            <Label text="Street" />
+            <Text text="{addressModel>/Street}" />
+
+            <Label text="City" />
+            <Text text="{addressModel>/City}" />
+
+            <Label text="State" />
+            <Text text="{addressModel>/State}" />
+
+            <Label text="Zip" />
+            <Text text="{addressModel>/Zip}" />
+        </f:SimpleForm>
+    </VBox>
+   
+    </Page>
+</mvc:View>

@@ -2,6 +2,9 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    	<headerContent>
+			<Button icon="sap-icon://action" tooltip="Share" press="onNavView2"/>
+		</headerContent>
 
     <VBox>
         <HBox >
@@ -14,7 +17,8 @@
     
 
     <!-- Table -->
-    <Table id="idTable" items="{/Employees}" inset="false" growing="true" growingThreshold="5">
+    <Table id="idTable" items="{/Employees}" inset="false" growing="true" 
+    selectionChange="onRowPress" mode="SingleSelectMaster" growingThreshold="10">
       <columns>
         <Column>
           <Text text="Name" />
