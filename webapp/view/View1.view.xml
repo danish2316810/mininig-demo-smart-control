@@ -1,18 +1,45 @@
 <mvc:View controllerName="app.project1.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar">
     <Page id="page" title="{i18n>title}">
     	<headerContent>
 			<Button icon="sap-icon://action" tooltip="Share" press="onNavView2"/>
 		</headerContent>
+    <fb:FilterBar id="filterBar" clear="onRefreshPress" class="filterbar sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom"
+    showClearOnFB="true" reset="onReset"   filterBarExpanded="true">
+
+    <!-- Filter Items -->
+    <fb:filterItems>
+        
+        <!-- Name Filter -->
+        <fb:FilterItem label="Name" name="A">
+            <fb:control>
+                <Input id="idNameFilter" placeholder="Enter Name" liveChange=".onFilter" 
+                    width="200px" showValueHelp="true" valueHelpRequest="onF4Help" />
+            </fb:control>
+        </fb:FilterItem>
+        
+        <!-- City Filter -->
+        <fb:FilterItem label="City" name="B">
+            <fb:control>
+                <Input id="idCityFilter" placeholder="Enter City" liveChange=".onFilter" width="200px" />
+            </fb:control>
+        </fb:FilterItem>
+        
+        <!-- Department Filter -->
+        <fb:FilterItem label="Department" name="C">
+            <fb:control>
+                <Input id="idDeptFilter" placeholder="Enter Department" liveChange=".onFilter" width="200px" />
+            </fb:control>
+        </fb:FilterItem>
+        
+    </fb:filterItems>
+</fb:FilterBar>
+
 
     <VBox>
-        <HBox >
-            <Input id="idNameFilter" placeholder="Filter by Name" liveChange=".onFilter" width="200px" 
-            showValueHelp="true" valueHelpRequest="onF4Help"/>
-            <Input id="idCityFilter" placeholder="Filter by City" liveChange=".onFilter" width="200px"/>
-            <Input id="idDeptFilter" placeholder="Filter by Department" liveChange=".onFilter" width="200px"/>
-        </HBox>
+    
  
     
 
